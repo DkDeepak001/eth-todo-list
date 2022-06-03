@@ -7,6 +7,8 @@ App = {
       await App.loadAccount()
       await App.loadContract()
       await App.render()
+      web3.eth.defaultAccount = App.account;
+
     },
   
     // https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
@@ -112,6 +114,7 @@ App = {
     createTask: async () => {
       App.setLoading(true)
       const content = $('#newTask').val()
+      console.log(content)
       await App.todoList.createTask(content)
       window.location.reload()
     },
