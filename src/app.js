@@ -121,7 +121,8 @@ App = {
   
     toggleCompleted: async (e) => {
       App.setLoading(true)
-      const taskId = e.target.name
+      const taskId = parseInt(e.target.name)
+      console.log(taskId)
       await App.todoList.toggleCompleted(taskId)
       window.location.reload()
     },
